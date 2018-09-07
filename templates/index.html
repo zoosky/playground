@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>Playground</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css"">
+
+</head>
+
+<body >
+
+  {% block content %}
+        
+    <h2>Playground</h2>
+  
+    <div class="
+        posts">
+    {% for page in section.pages | reverse %}
+    <article>
+        <h3>{{ page.title }}</h3>
+        <p>{{ page.summary | safe }}</p>
+        <ul class="actions">
+            <li><a href="{{ page.permalink | safe }}#" class="button">More</a></li>
+        </ul>
+        <span class="post-date">{{ page.date | date(format="%d.%m.%Y") }}</span>
+    </article>
+    {% endfor %}
+    </div>
+    </section>
+    {% endblock content %}
+
+    <hr>
+    <h2>Contents</h2>
+
+    <div id="sidebar">
+        <div class="inner">
+            <ul>
+                {% block article_links %}
+                {% for article in section.pages %}
+                <li>
+                    <a href="{{ article.permalink | safe }}#">{{ article.title }}</a>
+                </li>
+                {% endfor %}
+                {% endblock article_links %}
+            </ul>
+
+        </div>
+    </div>
+
+    <hr>
+    <pre>
+        {{ __tera_context }}
+    </pre>
+
+    </div>
+    <!-- Scripts -->
+    <!--
+    <script src="/assets/js/main.js"></script>
+-->
+    </body>
+
+</html>
