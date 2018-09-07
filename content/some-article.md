@@ -1,6 +1,7 @@
 +++
 title = "What is Gutenberg"
 date = 2017-09-24
+template = "foo.html"
 +++
 
 Some articl with a Lead. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu feugiat sapien. Aenean ligula nunc, laoreet id sem in, interdum bibendum felis.

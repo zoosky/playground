@@ -27,10 +27,11 @@
     <article>
         <h3>{{ page.title }}</h3>
         <p>{{ page.summary | safe }}</p>
+        <span class="post-date">{{ page.date | date(format="%d.%m.%Y") }}</span>
         <ul class="actions">
             <li><a href="{{ page.permalink | safe }}#" class="button">More</a></li>
         </ul>
-        <span class="post-date">{{ page.date | date(format="%d.%m.%Y") }}</span>
+
     </article>
     {% endfor %}
     </div>
@@ -40,20 +41,20 @@
     <hr>
     <h2>Contents</h2>
 
+    {% block article_links %}
     <div id="sidebar">
         <div class="inner">
             <ul>
-                {% block article_links %}
                 {% for article in section.pages %}
                 <li>
                     <a href="{{ article.permalink | safe }}#">{{ article.title }}</a>
                 </li>
                 {% endfor %}
-                {% endblock article_links %}
             </ul>
 
         </div>
     </div>
+    {% endblock article_links %}
 
     <hr>
     <pre>
